@@ -2,7 +2,13 @@ require 'rails_helper'
 
 RSpec.describe TasksController, type: :controller do
 
-  # TODO: factory
+  # TODO: ファクトリに移す
+  before :each do
+    @task = Task.create(
+        content: "This is a test task.",
+        status: :todo
+    )
+  end
 
   describe "GET #index" do
     it "returns http success" do
@@ -20,14 +26,14 @@ RSpec.describe TasksController, type: :controller do
 
   describe "GET #show" do
     it "returns http success" do
-      get :show
+      get :show, id: @task
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET #edit" do
     it "returns http success" do
-      get :edit
+      get :edit, id: @task
       expect(response).to have_http_status(:success)
     end
   end
