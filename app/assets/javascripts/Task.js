@@ -1,6 +1,10 @@
 import React from 'react'
 
 export default class Task extends React.Component {
+  handleUpdate(e) {
+    e.preventDefault();
+    this.props.onTaskUpdate({task: {id: this.props.id, status: e.target.value}});
+  }
   render() {
     return (
       <tr key={this.props.id}>
@@ -8,7 +12,11 @@ export default class Task extends React.Component {
           {this.props.content}  
         </td>
         <td>
-          {this.props.status}
+          <select defaultValue={this.props.status} onChange={this.handleUpdate.bind(this)}>
+            <option value="todo">todo</option>
+            <option value="doing">doing</option>
+            <option value="done">done</option>
+          </select>
         </td>
       </tr>
     );
