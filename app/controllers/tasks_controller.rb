@@ -4,11 +4,11 @@ class TasksController < ApplicationController
   # GET /tasks
   def index
     @tasks = Task.all
+    render json: @tasks
   end
 
   # GET tasks/:id
   def show
-
   end
 
   # GET tasks/new
@@ -46,11 +46,11 @@ class TasksController < ApplicationController
     end
   end
 
-  def destory
+  def destroy
     @task.destroy
     respond_to do |format|
-      format_html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
-      format_json { head :no_content }
+      format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 
