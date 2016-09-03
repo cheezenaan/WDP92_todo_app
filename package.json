@@ -1,0 +1,40 @@
+{
+  "name": "todo_app_WDP92",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "browserify app/assets/javascripts/app.js -t babelify -o app/assets/javascripts/bundle.js -v",
+    "watch": "watchify app/assets/javascripts/app.js -t babelify -o app/assets/javascripts/bundle.js -v"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cheezenaan/WDP92_todo_app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cheezenaan/WDP92_todo_app/issues"
+  },
+  "homepage": "https://github.com/cheezenaan/WDP92_todo_app#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.14.0",
+    "babelify": "^7.3.0",
+    "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "babel-preset-react": "^6.11.1",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  }
+}
